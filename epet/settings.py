@@ -41,6 +41,7 @@ DJANGO_APPS = [
 
 APPS_PROPIAS = [
     'apps.agenda',
+    'apps.usuario',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + APPS_PROPIAS
