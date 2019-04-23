@@ -23,21 +23,6 @@
 		<div class="col-md-3">
 			<img src="{% static 'img/cpe.png' %}" class="img-fluid rounded mx-auto d-block mt-2 mb-2" alt="cpe">
 			<img src="{% static 'img/kisi.png' %}" class="img-fluid rounded mx-auto d-block mt-2 mb-2" alt="kisi">
-			<form>
-				<div class="form-group">
-					<label for="inputUsuario">Usuario</label>
-					<input type="text" class="form-control" id="inputUsuario" placeholder="Nombre de usuario">
-				</div>
-				<div class="form-group">
-					<label for="InputPassword">Contraseña</label>
-					<input type="password" class="form-control" id="InputPassword" placeholder="Su contraseña">
-				</div>
-				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="exampleCheck1">
-					<label class="form-check-label" for="exampleCheck1">Recordarme</label>
-				</div>
-				<button type="submit" class="btn btn-primary">Enviar</button>
-			</form>
 		</div> <!-- col-md-4 -->
 		<div class="col-md-9">
 			{% for novedad in novedades  %}
@@ -48,7 +33,7 @@
 					<div class="card-body">
 						<h5 class="card-title">{{ novedad.titulo|title|safe|escape }}</h5>
 						<p class="card-text">{{ novedad.subtitulo|title|safe|escape }}</p>
-						<a href="#" class="btn btn-primary">Leer mas</a>
+						<a href="{% url 'web:novedad_id' novedad.id %}" class="btn btn-primary">Leer mas</a>
 					</div>
 					<div class="card-footer text-muted">
 						Publicado por: {{ novedad.user.last_name|title }}, {{ novedad.user.first_name|title }} - Fecha {{ novedad.fecha_publicación }}
