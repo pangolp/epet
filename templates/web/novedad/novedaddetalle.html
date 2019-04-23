@@ -2,10 +2,10 @@
 {% block contenido %}
 <div class="jumbotron jumbotron-fluid mt-3">
   <div class="container">
-    <h1 class="display-4">{{ novedad.titulo }}</h1>
-    <p class="lead">{{ novedad.subtitulo|safe|escape }}</p>
-    <p>{{ novedad.cuerpo|safe|escape }}</p>
-    <p class="lead">Publicado por: {{ novedad.user.last_name|title }}, {{ novedad.user.first_name|title }} - Fecha {{ novedad.fecha_publicación }}</p>
+    <h1 class="display-4">{{ novedad.titulo|capfirst }}</h1>
+    <p class="lead">{{ novedad.subtitulo|capfirst|safe|escape }}</p>
+    <p>{{ novedad.cuerpo|capfirst|safe|escape }}</p>
+    <p class="lead">Publicado por: {{ novedad.user.last_name|capfirst }}, {{ novedad.user.first_name|capfirst }} - Fecha {{ novedad.fecha_publicación }}</p>
   </div>
 </div>
 {% endblock contenido %}

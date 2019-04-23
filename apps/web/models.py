@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 
+from ckeditor.fields import RichTextField
 
 class Categoria(models.Model):
 
@@ -12,15 +14,16 @@ class Categoria(models.Model):
 
 class Novedad(models.Model):
 	
-	titulo = models.CharField(max_length=255)
+	titulo = models.CharField(max_length=50)
 	subtitulo = models.CharField(max_length=255, help_text='Lo que se va a ver en la página principal')
-	cuerpo = models.TextField()
+	cuerpo = RichTextField()
 	categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, default=1)
 	# auto_now_add = La próxima vez que se genera se le asigna una fecha
 	fecha_publicación = models.DateTimeField(auto_now_add=True)
 	# auto_now = Cada vez que se modifica, se le carga la nueva fecha.
 	modificado = models.DateTimeField(auto_now=True)
 	# Es un campo oculto, no puede ser modificado por el usuario.
+	slug = models.SlugField(max_length=50, editable=False, blank=True, null=True)
 	user = models.ForeignKey(User, editable=False, on_delete=models.PROTECT)
 
 	"""
@@ -37,7 +40,7 @@ class Novedad(models.Model):
 	def save(self):
 		self.titulo = self.titulo.lower()
 		self.subtitulo = self.subtitulo.lower()
-		self.cuerpo = self.cuerpo.lower()
+		self.slug = slugify(self.titulo.lower())
 		super(Novedad, self).save()
 
 	class Meta:

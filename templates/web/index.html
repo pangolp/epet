@@ -19,25 +19,21 @@
 	</div> <!-- col-md-12 -->
 </div> <!-- row mt-2 mb-3 -->
 <div class="container">
-	<div class="row">	
+	<div class="row mb-3">	
 		<div class="col-md-3">
-			<img src="{% static 'img/cpe.png' %}" class="img-fluid rounded mx-auto d-block mt-2 mb-2" alt="cpe">
-			<img src="{% static 'img/kisi.png' %}" class="img-fluid rounded mx-auto d-block mt-2 mb-2" alt="kisi">
+			<img src="{% static 'img/cpe.png' %}" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="cpe">
+			<img src="{% static 'img/kisi.png' %}" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="kisi">
 		</div> <!-- col-md-4 -->
 		<div class="col-md-9">
 			{% for novedad in novedades  %}
-				<div class="card text-center">
-					<div class="card-header">
-						{{ novedad.categoria|title }}
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">{{ novedad.titulo|title|safe|escape }}</h5>
-						<p class="card-text">{{ novedad.subtitulo|title|safe|escape }}</p>
-						<a href="{% url 'web:novedad_id' novedad.id %}" class="btn btn-primary">Leer mas</a>
-					</div>
-					<div class="card-footer text-muted">
-						Publicado por: {{ novedad.user.last_name|title }}, {{ novedad.user.first_name|title }} - Fecha {{ novedad.fecha_publicación }}
-					</div>
+			<div class="media mt-4">
+				<img class="align-self-center mr-3" src="{% static 'img/pencil.png' %}" alt="{{ novedad.titulo }}">
+				<div class="media-body">
+					<h6 class="alert alert-dark"><a href="{% url 'web:novedad_id' novedad.slug %}">{{ novedad.titulo|title }}</a></h6>
+					<h6 class="mt-0">{{ novedad.categoria|title }}</h6>
+					<p>{{ novedad.subtitulo|title|safe|escape }}</p>
+					
+				</div>
 			</div>
 			{% empty %}
 				<div class="alert alert-dark" role="alert">
@@ -47,4 +43,28 @@
 		</div> <!-- col-md-8 -->
 	</div> <!-- row -->
 </div> <!-- container -->
+<footer class="pt-5 pb-5">
+	<div class="container">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<h5>Redes sociales</h5>
+					<ul>
+						<li><a href="#" target="_black">Facebook</a></li>
+						<li><a href="#" target="_black">Instragram</a></li>
+						<li><a href="#" target="_black">Whatsapp</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<h5>Enlaces</h5>
+					<ul>
+						<li><a href="#" target="_black">1</a></li>
+						<li><a href="#" target="_black">2</a></li>
+						<li><a href="#" target="_black">3</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
 {% endblock contenido %}

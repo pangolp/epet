@@ -45,7 +45,11 @@ APPS_PROPIAS = [
     'apps.web',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + APPS_PROPIAS
+APPS_TERCEROS = [
+    'ckeditor',
+]
+
+INSTALLED_APPS = DJANGO_APPS + APPS_PROPIAS + APPS_TERCEROS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,3 +134,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')

@@ -11,3 +11,19 @@ body {
 .dropdown-divider {
 	border-top: 1px solid #000;
 }
+
+footer {
+	background: #151515;
+}
+
+footer h5 {
+	color: #f5a637;
+}
+
+footer ul li {
+	color: #fff;
+}
+
+footer ul li a {
+	color: #fff;
+}
