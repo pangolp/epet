@@ -1,22 +1,65 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block titulo %}Inicio{% endblock titulo %}
-{% block header %}
-	<img src="{% static 'img/banner.png' %}" class="img-fluid rounded mx-auto d-block mt-2 mb-2" alt="banner">
-{% endblock header %}
-{% block contenido_izquierdo %}
-	<div class="dropdown-divider"></div>
-		<h3 class="text-center">Novedades</h3>
-	<div class="dropdown-divider"></div>
-	<h4>Profesores</h4>
-	<p>Felíz día a todos los Profesores que forman parte de la E.P.E.T. N° 20, GRACIAS POR SU DEDICACIÓN Y COMPROMISO!</p>
-	<div class="dropdown-divider"></div>
-	<h4>Comunidad educativa</h4>
-	<p>"Siembra de libros". Esta iniciativa surge a partir de un movimiento que se origina en los Estados Unidos y que se llama <strong>bookcrossing</strong>, que se propone unir a las personas a través de la lectura como actividad colectiva. El proyecto de Siembra de libros busca contribuir a despertar el interés por acceder a otros mundos posibles a través de la lectura y fomentar el hábito de la lectura a las personas que forman parte de la comunidad. En síntesis, contribuye a propiciar la lectura, desarrollando la socialización, la creatividad y la participación en un marco de respeto y solidaridad. La idea consiste en dejar y encontrar libros en espacios públicos, donde todos tengan la posibilidad de acceder a ellos y una vez leídos, volver a sembrarlo. Todos, en la comunidad del Epet 20 están invitados a donar libros (novelas, poesía, cuentos e historietas) que luego sembraran por donde vayan. Habrá canastas y cajas en biblioteca en donde depositar los libros. Es una invitación a sembrar el mundo que queremos cosechar. Elegimos esto dado que el 23 de abril es el Día Mundial del Libro. Recurrimos a ustedes para invitarlos a sembrar libros y difundir la iniciativa. Mil gracias!!!</p>
-	<div class="dropdown-divider"></div>
-	<h4>Sres Padres</h4>
-	<p>Sres. Padres informamos que los cuadernillos faltantes, están en proceso de digitalización, en breve serán subidos. Para acceder a descargarlos, se encuentran en la solapa de TEORIA, allí en su corresponiente ciclo.</p>
-	<div class="dropdown-divider"></div>
-	<h4>Alumnos</h4>
-	<p>Informamos a los alumnos de 2do 5ta, que comienzan el lunes 18/03 las clases a las 8 de la mañana.</p>
-{% endblock contenido_izquierdo %}
+{% block titulo %}EPET 20: Inicio{% endblock titulo %}
+{% block contenido %}
+<div class="row mt-2 mb-3">
+	<div class="col-md-12">
+		<img src="{% static 'img/banner.png' %}" class="img-fluid rounded mx-auto d-block mt-2 mb-2" alt="banner">
+		<ul class="nav nav-pills justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link" href="http://www.neuquen.edu.ar/" target="_blank">Consejo Provincial de Educación</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="https://www.anses.gob.ar/" target="_blank">Anses</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="https://www.educ.ar/" target="_blank">Portal de Educación</a>
+			</li>
+		</ul> <!-- nav -->
+	</div> <!-- col-md-12 -->
+</div> <!-- row mt-2 mb-3 -->
+<div class="container">
+	<div class="row">	
+		<div class="col-md-3">
+			<img src="{% static 'img/cpe.png' %}" class="img-fluid rounded mx-auto d-block mt-2 mb-2" alt="cpe">
+			<img src="{% static 'img/kisi.png' %}" class="img-fluid rounded mx-auto d-block mt-2 mb-2" alt="kisi">
+			<form>
+				<div class="form-group">
+					<label for="inputUsuario">Usuario</label>
+					<input type="text" class="form-control" id="inputUsuario" placeholder="Nombre de usuario">
+				</div>
+				<div class="form-group">
+					<label for="InputPassword">Contraseña</label>
+					<input type="password" class="form-control" id="InputPassword" placeholder="Su contraseña">
+				</div>
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Recordarme</label>
+				</div>
+				<button type="submit" class="btn btn-primary">Enviar</button>
+			</form>
+		</div> <!-- col-md-4 -->
+		<div class="col-md-9">
+			{% for novedad in novedades  %}
+				<div class="card text-center">
+					<div class="card-header">
+						{{ novedad.categoria|title }}
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">{{ novedad.titulo|title|safe|escape }}</h5>
+						<p class="card-text">{{ novedad.subtitulo|title|safe|escape }}</p>
+						<a href="#" class="btn btn-primary">Leer mas</a>
+					</div>
+					<div class="card-footer text-muted">
+						Publicado por: {{ novedad.user.last_name|title }}, {{ novedad.user.first_name|title }} - Fecha {{ novedad.fecha_publicación }}
+					</div>
+			</div>
+			{% empty %}
+				<div class="alert alert-dark" role="alert">
+					Por el momento no tenemos publicaciones.
+				</div>
+			{% endfor %}			
+		</div> <!-- col-md-8 -->
+	</div> <!-- row -->
+</div> <!-- container -->
+{% endblock contenido %}
