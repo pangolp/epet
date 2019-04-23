@@ -8,12 +8,21 @@ class Sexo(models.Model):
 	def __str__(self):
 		return '%s' % (self.nombre)
 
+	class Meta:
+		verbose_name='sexo'
+		verbose_name_plural='sexos'
+
 
 class Documento(models.Model):
 	tipo = models.CharField(max_length=9, help_text='Ej: DNI / CI, LE , LC, Pasaporte', blank=True, null=True)
 
 	def __str__(self):
 		return '%s' % (self.tipo)
+
+	class Meta:
+		verbose_name='documento'
+		verbose_name_plural='documentos'
+
 
 
 class Pais(models.Model):
@@ -22,6 +31,10 @@ class Pais(models.Model):
 
 	def __str__(self):
 		return '%s' % (self.nombre)
+
+	class Meta:
+		verbose_name='pais'
+		verbose_name_plural = 'paises'
 
 
 class Perfil(models.Model):
@@ -39,4 +52,8 @@ class Perfil(models.Model):
 	fecha_egreso = models.DateField()
 
 	def __str__(self):
-		return '%s %s %s %s' % (self.user.lastname, self.segundo_apellido, self.user.first_name, self.segundo_nombre)
+		return '%s %s %s %s' % (self.user.last_name, self.segundo_apellido, self.user.first_name, self.segundo_nombre)
+
+	class Meta:
+		verbose_name='perfil'
+		verbose_name_plural = 'perfiles'

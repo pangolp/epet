@@ -36,3 +36,7 @@ class Libreta(models.Model):
 
 	def __str__(self):
 		return '%s %s' % (self.user.last_name, self.user.first_name)
+
+	class Meta:
+		verbose_name='libreta'
+		verbose_name_plural = 'libretas'

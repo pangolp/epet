@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
+body {
+	background: #f1f2f6;
+}
+
+.navbar {
+	font-family: 'Righteous', cursive;
+}
+
+.dropdown-divider {
+	border-top: 1px solid #000;
+}
