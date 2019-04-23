@@ -29,8 +29,8 @@ class Provincia(models.Model):
 class Libreta(models.Model):
 	user = models.ForeignKey(User, on_delete=models.PROTECT)
 	calle = models.CharField('calle / cuadra', max_length=100)
-	localidad = models.OneToOneField(Localidad, on_delete=models.PROTECT)
-	provincia = models.OneToOneField(Provincia, on_delete=models.PROTECT)
+	localidad = models.ForeignKey(Localidad, on_delete=models.PROTECT)
+	provincia = models.ForeignKey(Provincia, on_delete=models.PROTECT)
 	telefono_contacto = models.CharField('telefono de contacto', max_length=50)
 	observación = models.TextField(blank=True, null=True)
 
