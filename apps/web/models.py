@@ -46,3 +46,33 @@ class Novedad(models.Model):
 	class Meta:
 		verbose_name='novedad'
 		verbose_name_plural = 'novedades'
+
+
+class Cargo(models.Model):
+	nombre = models.CharField(max_length=50, help_text='Director')
+	orden = models.PositiveSmallIntegerField(help_text='Orden en que se muestran')
+
+	def __str__(self):
+		return '%s' % (self.nombre)
+
+	class Meta:
+		verbose_name='cargo'
+		verbose_name_plural = 'cargos'
+		ordering = ['orden']
+
+class Institucional(models.Model):
+	cargo = models.ForeignKey(Cargo, on_delete=models.PROTECT)
+	nombre = models.CharField(max_length=100)
+	apellido = models.CharField(max_length=100)
+	anexo = models.CharField(max_length=150, help_text='Regente de Cultura Técnica T.T.', blank=True, null=True)
+	foto = models.ImageField(upload_to='institucional/perfil', default='institucional/perfil/no-img.png')
+	sitio_web = models.URLField('sitio web', blank=True, null=True)
+	info = RichTextField(blank=True, null=True, help_text='Mas información')
+
+	def __str__(self):
+		return '%s %s' % (self.nombre, self.apellido)
+
+	class Meta:
+		verbose_name='institucional'
+		verbose_name_plural='autoridades'
+		ordering = ['cargo']

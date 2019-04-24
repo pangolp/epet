@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block titulo %}Autoridades{% endblock titulo %}
+{% block contenido %}
+<div class="container">
+	{% for autoridad in autoridades %}
+		<div class="row mt-3">
+			<div class="media">
+				<img src="{{ autoridad.foto.url }}" class="align-self-center mr-3" alt="{{ autoridad.nombre }}">
+				<div class="media-body">
+					<h6 class="mt-0">{{ autoridad.apellido }}, {{ autoridad.nombre }}</h6>
+					<p>{{ autoridad.cargo }} {% if autoridad.anexo %}({{ autoridad.anexo }}){% endif %}</p>
+				</div>
+			</div>
+		</div>	
+	{% endfor %}
+</div>
+{% endblock contenido %}

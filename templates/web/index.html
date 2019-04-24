@@ -23,6 +23,8 @@
 		<div class="col-md-3">
 			<img src="{% static 'img/cpe.png' %}" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="cpe">
 			<img src="{% static 'img/kisi.png' %}" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="kisi">
+			<img src="{% static 'img/conectarnqn.png' %}" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="conectarnqn">
+			<img src="{% static 'img/conectarnqn2.png' %}" class="img-fluid rounded mx-auto d-block mt-4 mb-4" alt="conectarnqn2">
 		</div> <!-- col-md-4 -->
 		<div class="col-md-9">
 			{% for novedad in novedades  %}
@@ -31,8 +33,7 @@
 				<div class="media-body">
 					<h6 class="alert alert-dark"><a href="{% url 'web:novedad_id' novedad.slug %}">{{ novedad.titulo|title }}</a></h6>
 					<h6 class="mt-0">{{ novedad.categoria|title }}</h6>
-					<p>{{ novedad.subtitulo|title|safe|escape }}</p>
-					
+					<p>{{ novedad.subtitulo|title|safe|escape }}</p>		
 				</div>
 			</div>
 			{% empty %}
