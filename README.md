@@ -5,8 +5,23 @@ Saludos y bienvenidos. El repositorio que estas consultando actualmente es un pr
 # Instalación
 
 ```sh
-$ pip install Django==2.2
-$ pip install Pillow # Para el manejo de imágenes en los formularios.
+$ git clone https://github.com/pangolp/epet.git 
+```
+### Dependencias
+
+Revisen el fichero requirements.txt
+Se pueden ir modificando, agregando o eliminando librerías
+
+Si tiene una versión de Django diferente de la 2.2
+Quizás sea preferible trabajar con un entorno virtual.
+
+```
+Django==2.2
+django-ckeditor==5.6.1
+django-js-asset==1.2.2
+Pillow==6.0.0
+pytz==2019.1
+sqlparse==0.3.0
 ```
 
 Se recomienda siempre revisar el fichero requirements.txt el cual va a contener un listado de todas las librerías utilizadas en el desarrollo con sus respectivas versiones.
