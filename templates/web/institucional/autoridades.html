@@ -9,6 +9,7 @@
 				<div class="media-body">
 					<h6 class="mt-0">{{ autoridad.apellido }}, {{ autoridad.nombre }}</h6>
 					<p>{{ autoridad.cargo }} {% if autoridad.anexo %}({{ autoridad.anexo }}){% endif %}</p>
+					<p>{{ autoridad.info|safe|escape }}</p>
 				</div>
 			</div>
 		</div>	

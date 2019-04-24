@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 
 class Localidad(models.Model):
@@ -32,7 +33,7 @@ class Libreta(models.Model):
 	localidad = models.ForeignKey(Localidad, on_delete=models.PROTECT)
 	provincia = models.ForeignKey(Provincia, on_delete=models.PROTECT)
 	telefono_contacto = models.CharField('telefono de contacto', max_length=50)
-	observación = models.TextField(blank=True, null=True)
+	observación = RichTextField(blank=True, null=True)
 
 	def __str__(self):
 		return '%s %s' % (self.user.last_name, self.user.first_name)
