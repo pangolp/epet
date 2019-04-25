@@ -26,3 +26,11 @@ class AutoridadDetail(DetailView):
 	model = Institucional
 	template_name = 'web/institucional/autoridad_detalle.html'
 	context_object_name = 'autoridad'
+
+
+class TallerView(TemplateView):
+	template_name = 'web/taller/taller_index.html'
+
+
+class AlumnoView(TemplateView):
+	template_name = 'web/alumnos/alumnos_index.html'
