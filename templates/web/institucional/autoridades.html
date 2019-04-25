@@ -5,9 +5,9 @@
 	{% for autoridad in autoridades %}
 		<div class="row mt-3">
 			<div class="media">
-				<img src="{{ autoridad.foto.url }}" class="align-self-center mr-3" alt="{{ autoridad.nombre }}">
+				<img src="{{ autoridad.foto.url }}" class="align-self-center mr-3" width="100" height="100" alt="{{ autoridad.nombre }}">
 				<div class="media-body">
-					<h6 class="mt-0">{{ autoridad.apellido }}, {{ autoridad.nombre }}</h6>
+					<h6 class="mt-0"><a href="{% url 'web:autoridad_detalle' autoridad.pk %}">{{ autoridad.apellido }}, {{ autoridad.nombre }}</a></h6>
 					<p>{{ autoridad.cargo }} {% if autoridad.anexo %}({{ autoridad.anexo }}){% endif %}</p>
 					<p>{{ autoridad.info|safe|escape }}</p>
 				</div>

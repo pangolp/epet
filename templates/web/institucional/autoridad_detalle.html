@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block titulo %}Autoridad: {{ autoridad.apellido }}{% endblock titulo %}
+{% block contenido %}
+<div class="container">
+	<div class="card" style="width: 18rem;">
+		<img src="{{ autoridad.foto.url }}" class="card-img-top" alt="{{ autoridad.nombre }}">
+		<div class="card-body">
+			<p class="card-text">{{ autoridad.apellido }}, {{ autoridad.nombre }}</p>
+		</div>
+	</div>
+</div>
+{% endblock contenido %}

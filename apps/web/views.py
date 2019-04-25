@@ -20,3 +20,9 @@ class AutoridadesView(ListView):
 	model = Institucional
 	template_name = 'web/institucional/autoridades.html'
 	context_object_name = 'autoridades'
+
+
+class AutoridadDetail(DetailView):
+	model = Institucional
+	template_name = 'web/institucional/autoridad_detalle.html'
+	context_object_name = 'autoridad'
