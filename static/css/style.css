@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Righteous');
+/* @import url('https://fonts.googleapis.com/css?family=Righteous'); */
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe');
 
 body {
-	background: #f1f2f6;
+	/* background: #f1f2f6;*/
+	background: #f7f1e3;
 }
 
 .navbar {
-	font-family: 'Righteous', cursive;
+	/* font-family: 'Righteous', cursive;*/
+	font-family: 'ZCOOL KuaiLe', cursive;
 }
 
 .dropdown-divider {
@@ -26,4 +29,10 @@ footer ul li {
 
 footer ul li a {
 	color: #fff;
+}
+
+@media (max-width: 768px) {
+	.ocultar {
+		visibility: hidden;
+	}
 }

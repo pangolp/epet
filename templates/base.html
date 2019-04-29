@@ -52,6 +52,15 @@
 									<li class="nav-item">
 										<a href="{% url 'web:alumnos' %}" class="nav-link">Listado de alumnos</a>
 									</li>
+									{% if request.user.is_authenticated %}
+										<li class="nav-item">
+											<a href="#" class="nav-link">{{ request.user.last_name }}, {{ request.user.first_name }}</a>
+										</li>
+									{% else %}
+										<li class="nav-item">
+											<a href="#" class="nav-link">Login</a>
+										</li>
+									{% endif %}
 								</ul>
 							</div> <!-- collapse navbar-collapse -->
 						</div> <!-- container -->
